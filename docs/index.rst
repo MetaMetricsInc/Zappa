@@ -39,6 +39,7 @@ Contents:
     quickstart
     advanced
     guides
+    commands
     config
     press
     sites
