@@ -8,6 +8,10 @@ Envirnments, such as *dev*, *staging*, and *production* are configured in the *z
 
     {
         "dev": {
+            //Required Settings
+            "app_function": "your_app_module.your_app_function",
+            "s3_bucket": "dev-bucket",
+            //Optional Settings
             "api_key_required": false,
             "assume_policy": "my_assume_policy.json",
             "attach_policy": "my_attach_policy.json",
@@ -56,7 +60,7 @@ Envirnments, such as *dev*, *staging*, and *production* are configured in the *z
             "remote_env_bucket": "my-project-config-files",
             "remote_env_file": "filename.json",
             "role_name": "MyLambdaRole",
-            "s3_bucket": "dev-bucket",
+
             "settings_file": "~/Projects/MyApp/settings/dev_settings.py",
             "timeout_seconds": 30,
             "touch": false,
@@ -70,6 +74,21 @@ Envirnments, such as *dev*, *staging*, and *production* are configured in the *z
     }
 
 All values are standard JSON data types (Numbers, Strings, Booleans, Arrays, and Objects).
+
+app_function
+============
+
+**(Required):** This string setting is a dot notated representation of where to find your app's function
+
+ Example: "project_module.app_function"
+
+s3_bucket
+=========
+
+**(Required):** This string setting is the name of the bucket where Zappa will upload version zip files to.
+
+ Example: "my-zappa-deploy-files"
+
 
 api_key_required
 ================
@@ -279,11 +298,6 @@ role_name
 =========
 
 This string setting is name of the Lambda execution role.
-
-s3_bucket
-=========
-
-This string setting is the name of the Zappa zip bucket.
 
 settings_file
 =============
